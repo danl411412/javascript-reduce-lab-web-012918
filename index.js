@@ -1,5 +1,7 @@
 const batteryBatches = [4, 5, 3, 4, 4, 6, 5];
 
+var totalBatteries = batteryBatches.reduce((accumulator, initial) => accumulator + initial);
+
 const monologueLines = [
   'Who are you talking to right now?',
   'Who is it you think you see?',
@@ -16,3 +18,16 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+
+var wordCountMap = monologueLines.reduce(function(accumulator, sentence) {
+  let wordCount = sentence.split(' ').length;
+
+  if(!accumulator[wordCount]) {
+    accumulator[wordCount] = 0;
+  }
+
+  accumulator[wordCount] += 1;
+  console.log(accumulator)
+  return accumulator;
+}, {});
